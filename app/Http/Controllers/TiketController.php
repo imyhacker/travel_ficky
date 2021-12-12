@@ -52,4 +52,16 @@ class TiketController extends Controller
         $pdf = PDF::loadview('Dashboard/Mypdf', compact('cek2', 'cek'));
         return $pdf->stream('itsolutionstuff.pdf');
     }
+    public function pemesan()
+    {
+        $data = Checkout::orderBy('id', 'DESC')->get();
+        return view('Dashboard/pemesan', compact('data'));
+    }
+    public function success($kode_pembayaran)
+    {
+        $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->update([
+            'status_dibayar' => 1,
+        ]);
+        return redirect()->back();
+    }
 }

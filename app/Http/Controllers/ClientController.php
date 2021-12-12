@@ -53,5 +53,14 @@ class ClientController extends Controller
         return $pdf->download('Download_invoice_'.$request->input('nama').'_.pdf');
         return redirect()->back();
     }
+    public function cari_resi(Request $request)
+    {
+        $cek2 = Checkout::where('kode_pembayaran', $request->input('resi'))->first();
+        if(is_null($cek2)){
+            return redirect()->back();
+        }else{
+            return view('Dashboard/Mypdf2', compact('cek2'));
+        }
+    }
 }
 

@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Andi's Travel</a>
+            <a href="{{url('home')}}">Andi's Travel</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -18,6 +18,9 @@
                      
             <li class="dropdown">
               <a href="/home/tiket" class="nav-link"><i class="fas fa-ticket-alt"></i> <span>Pesen Tiket</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="{{route('pemesan')}}" class="nav-link"><i class="fas fa-user"></i> <span>Daftar Pesanan</span></a>
             </li>
           </ul>
        

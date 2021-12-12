@@ -14,78 +14,79 @@
                             <div class="card-header">
                                 <h4>Budget vs Sales</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body table-responsive">
                                 <form action="{{route('up_jadwal')}}" method="POST">
                                     @csrf
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Tujuan</label>
-                                            <select name="dari" class="form-control">
-                                                <option disabled selected value>-- Dari --</option>
-                                                @foreach($data as $d)
-                                                <option value="{{$d->destinasi}}">{{$d->destinasi}}</option>
-                                                @endforeach
-                                            </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Tujuan</label>
+                                                <select name="dari" class="form-control">
+                                                    <option disabled selected value>-- Dari --</option>
+                                                    @foreach($data as $d)
+                                                    <option value="{{$d->destinasi}}">{{$d->destinasi}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
 
-                                            <label>Tujuan</label>
-                                            <select name="tujuan" id="" class="form-control">
-                                                <option disabled selected value>-- Tujuan --</option>
+                                                <label>Tujuan</label>
+                                                <select name="tujuan" id="" class="form-control">
+                                                    <option disabled selected value>-- Tujuan --</option>
 
-                                                @foreach($data as $t)
-                                                <option value="{{$t->destinasi}}">{{$t->destinasi}}</option>
-                                                @endforeach
-                                            </select>
+                                                    @foreach($data as $t)
+                                                    <option value="{{$t->destinasi}}">{{$t->destinasi}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
 
-                                            <label>Tarif (Rp)</label>
-                                            <input type="number" name="tarif" class="form-control" placeholder="Tarif Per Orang">
+                                                <label>Tarif (Rp)</label>
+                                                <input type="number" name="tarif" class="form-control"
+                                                    placeholder="Tarif Per Orang">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Pukul</label>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <select name="jam"  class="form-control">
-                                                    <option disabled selected value>-- Jam --</option>
+                                        <div class="col-md-6">
+                                            <label for="">Pukul</label>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <select name="jam" class="form-control">
+                                                            <option disabled selected value>-- Jam --</option>
 
-                                                        @for($i = 1; $i <= 24; $i++) <option>{{$i}}</option>
-                                                            @endfor
-                                                    </select>
-                                                    <p class="text-sm">Jam</p>
+                                                            @for($i = 1; $i <= 24; $i++) <option>{{$i}}</option>
+                                                                @endfor
+                                                        </select>
+                                                        <p class="text-sm">Jam</p>
 
-                                                </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <select name="menit" class="form-control">
-                                                    <option disabled selected value>-- Menit --</option>
+                                                    <div class="form-group">
+                                                        <select name="menit" class="form-control">
+                                                            <option disabled selected value>-- Menit --</option>
 
-                                                        @for($i = 1; $i <= 60; $i++) <option>{{$i}}</option>
-                                                            @endfor
-                                                    </select>
-                                                    <p class="text-sm">Menit</p>
-                                                </div>
+                                                            @for($i = 1; $i <= 60; $i++) <option>{{$i}}</option>
+                                                                @endfor
+                                                        </select>
+                                                        <p class="text-sm">Menit</p>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <select name="area"  class="form-control">
-                                                    <option disabled selected value>-- Area --</option>
+                                                    <div class="form-group">
+                                                        <select name="area" class="form-control">
+                                                            <option disabled selected value>-- Area --</option>
 
-                                                        <option>WITA</option>
-                                                        <option>WIB</option>
-                                                        <option>WIT</option>
-                                                    </select>
-                                                    <p class="text-sm">Area</p>
-                                                </div>
+                                                            <option>WITA</option>
+                                                            <option>WIB</option>
+                                                            <option>WIT</option>
+                                                        </select>
+                                                        <p class="text-sm">Area</p>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -96,13 +97,10 @@
                                             <input type="submit" class="btn btn-primary btn-block" value="Kirim Data">
                                         </div>
                                     </div>
-                                </div>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 table-responsive">
-                        <table class="table">
+
+                            
+                                <table class="table" id="table_id">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -131,15 +129,20 @@
                                 @endforeach
                             </tbody>
                         </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                
-                <!-- END OF CENTER CONTENT -->
 
-
-            </section>
         </div>
-        <x-dcore.footer />
+
+        <!-- END OF CENTER CONTENT -->
+
+
+        </section>
     </div>
+    <x-dcore.footer />
+</div>
 </div>
 <x-dcore.script />

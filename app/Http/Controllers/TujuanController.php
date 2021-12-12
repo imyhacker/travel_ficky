@@ -8,7 +8,8 @@ use App\Models\Destinasi;
 class TujuanController extends Controller
 {
     public function index_tujuan(){
-        return view('Dashboard/tujuan');
+        $data = Destinasi::all();
+        return view('Dashboard/tujuan', compact('data'));
     }
 
     public function add_tujuan(Request $request){

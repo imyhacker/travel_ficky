@@ -25,6 +25,7 @@ use App\Models\Jadwal;
 Route::group(['prefix'=>'/'], function(){
     Route::get('/', [ClientController::class, 'index']);
     Route::post('/cari_tiket', [ClientController::class, 'cari'])->name('cari_tiket');
+    Route::get('/cari_resi', [ClientController::class, 'cari_resi'])->name('cari_resi');
 });
 
 Route::get('/cari_tiket/{slug_jadwal}/{penumpang}/pesan', [ClientController::class, 'pesan']);
@@ -36,7 +37,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => '/home'], function(){
+Route::group(['prefix' => '/home'], function($kode_pembayaran){
     Route::get('tujuan', [TujuanController::class, 'index_tujuan']);
     Route::post('tujuan/add_tujuan', [TujuanController::class, 'add_tujuan']);
 
@@ -45,6 +46,9 @@ Route::group(['prefix' => '/home'], function(){
 
     Route::get('jadwal', [JadwalController::class, 'index_jadwal'])->name('jadwal');
     Route::post('jadwal/up_jadwal', [JadwalController::class, 'up_jadwal'])->name('up_jadwal');
+
+    Route::get('pemesan', [TiketController::class, 'pemesan'])->name('pemesan');
+    Route::get('pemesan/{kode_pembayaran}/success', [TiketController::class, 'success'])->name('success', $kode_pembayaran );
 });
 
 Route::get('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan', [TiketController::class, 'pesan']);
