@@ -17,6 +17,12 @@
                 </div>
                 <div class="card-body">
                   <h4> Selamat Datang </h4>
+
+                  @can('isAdmin')
+                  ADMIN
+                  @elsecan('isUser')
+                  user
+                  @endcan
                 </div>
               </div>
             </div>
