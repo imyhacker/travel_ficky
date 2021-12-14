@@ -37,7 +37,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => '/home'], function($kode_pembayaran){
+Route::group(['prefix' => '/home', 'middleware' => 'can:isAdmin'], function($kode_pembayaran){
     Route::get('tujuan', [TujuanController::class, 'index_tujuan']);
     Route::post('tujuan/add_tujuan', [TujuanController::class, 'add_tujuan']);
 
@@ -51,5 +51,10 @@ Route::group(['prefix' => '/home'], function($kode_pembayaran){
     Route::get('pemesan/{kode_pembayaran}/success', [TiketController::class, 'success'])->name('success', $kode_pembayaran );
 });
 
-Route::get('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan', [TiketController::class, 'pesan']);
-Route::post('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan/checkout', [TiketController::class, 'checkout']);
+Route::get('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan', [TiketController::class, 'pesan'])->middleware('can:isAdmin');
+Route::post('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan/checkout', [TiketController::class, 'checkout'])->middleware('can:isAdmin');
+
+
+Route::group(['prefix' => '/home'], function(){
+    Route::get('cek_pesananmu', [TiketController::class, 'cek_pesananmu'])->name('cek_pesananmu');
+});

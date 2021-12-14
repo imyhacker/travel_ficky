@@ -29,7 +29,7 @@
               <a href="/home/tiket" class="nav-link"><i class="fas fa-ticket-alt"></i> <span>Pesen Tiket</span></a>
             </li>
             <li class="dropdown">
-              <a href="{{route('pemesan')}}" class="nav-link"><i class="fas fa-user"></i> <span>Daftar Pesananmu</span></a>
+              <a href="{{route('cek_pesananmu')}}" class="nav-link"><i class="fas fa-user"></i> <span>Daftar Pesananmu</span></a>
             </li>
             @endcan
           </ul>

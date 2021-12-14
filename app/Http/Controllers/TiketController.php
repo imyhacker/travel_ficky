@@ -64,4 +64,8 @@ class TiketController extends Controller
         ]);
         return redirect()->back();
     }
+    public function cek_pesananmu()
+    {
+        return view('Dashboard/Users/index');
+    }
 }

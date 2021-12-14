@@ -58,10 +58,11 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Jadwal</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pesan Tiket</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Cari Pesananmu</span></a></li>
+          <li><a href="{{url('/')}}#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="{{url('/')}}#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Jadwal</span></a></li>
+          <li><a href="{{url('/')}}#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pesan Tiket</span></a></li>
+          <li><a href="{{url('/')}}#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Cari Pesananmu</span></a></li>
+          <li><a href="{{url('login')}}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Login / Register</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
