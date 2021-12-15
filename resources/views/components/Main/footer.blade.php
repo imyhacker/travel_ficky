@@ -23,10 +23,35 @@
   <script src="{{asset('assets/vendor/typed.js/typed.min.js')}}"></script>
   <script src="{{asset('assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
-
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+@if(Session('sukses'))
+  <script>
+    Swal.fire({
+  title: 'Sukses!',
+  text: "{{session('sukses')}}",
+  icon: 'success',
+  confirmButtonText: 'Okey!'
+})
+  </script>
+  @elseif(Session('error'))
+  <script>
+    Swal.fire({
+      title: 'Ooopss!',
+  text: "{{session('error')}}",
+  icon: 'error',
+  confirmButtonText: 'Okey!'
+})
+  </script>
+  @endif
 </body>
 
 </html>

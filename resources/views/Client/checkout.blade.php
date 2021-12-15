@@ -97,10 +97,10 @@
 
                                 <hr class="mb-4">
                                 @if(Auth::check())
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to
+                                <button class="btn btn-primary btn-sm btn-block" type="submit">Continue to
                                     checkout</button>
                                 @else
-                                <button class="btn btn-danger btn-lg btn-block" type="Button">Login Dulu Bos</button>
+                                <button class="btn btn-danger btn-sm btn-block" type="Button">Login Terlebih Dahulu</button>
                                 @endif
                             </form>
                         </div>

@@ -14,7 +14,7 @@
                 <div class="card-header">
                   <h4>Daftar Pesananmu</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table" id="table_id">
                         <thead>
                             <tr>

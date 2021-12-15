@@ -10,7 +10,7 @@
           <p>Jadwal Pemberangkatan Travel Kami</p>
         </div>
 
-          <table class="table">
+          <table class="table" id="table_id">
                 <thead>
                     <tr>
                         <th>No</th>

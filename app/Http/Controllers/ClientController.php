@@ -26,7 +26,7 @@ class ClientController extends Controller
             $tanggal    = $request->input('tanggal');
             return view('Client/result', compact('data', 'penumpang', 'tanggal'));
         }else{
-            return redirect()->back()->with('gagal', 'Belum Ada Nih Data Yang Kamu Cari...');
+            return redirect()->back()->with('error', 'Belum Ada Nih Data Yang Kamu Cari...');
         }
     }
     public function pesan($slug_jadwal, $penumpang)
@@ -57,7 +57,7 @@ class ClientController extends Controller
     {
         $cek2 = Checkout::where('kode_pembayaran', $request->input('resi'))->first();
         if(is_null($cek2)){
-            return redirect()->back();
+            return redirect()->back()->with('error', 'Tidak Ada Resi / Invoice Yang Kamu Cari...');
         }else{
             return view('Dashboard/Mypdf2', compact('cek2'));
         }
