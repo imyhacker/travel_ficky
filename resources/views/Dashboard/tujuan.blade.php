@@ -22,7 +22,7 @@
                                             <div class="form-group">
                                                 <label>Masukan Tujuan</label>
                                                 <input type="text" class="form-control" name="destinasi"
-                                                    placeholder="Masukan Tujuan">
+                                                    placeholder="Masukan Tujuan" style="text-transform: Capitalize;">
                                             </div>
 
                                         </div>
@@ -46,9 +46,9 @@
                                @foreach($data as $dst)
                                 <tr>
                                   <td>{{$no++}}</td>
-                                  <td>{{$dst->destinasi}}</td>
+                                  <td style="text-transform: capitalize;">{{$dst->destinasi}}</td>
                                   <td>
-                                    <a href="" class="btn btn-outline-danger">Hapus</a>
+                                    <a href="{{route('hapus_tujuan', $dst->id)}}" class="btn btn-outline-danger">Hapus</a>
                                   </td>
                                 </tr>
                                @endforeach

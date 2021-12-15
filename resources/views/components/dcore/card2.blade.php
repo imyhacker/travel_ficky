@@ -24,7 +24,7 @@
                     <h4>Belum Di Bayar</h4>
                 </div>
                 <div class="card-body">
-                {{$ubelum ?? '0'}}
+                {{$ubelom ?? '0'}}
 
                 </div>
             </div>

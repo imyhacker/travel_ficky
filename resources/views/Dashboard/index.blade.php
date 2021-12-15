@@ -6,8 +6,11 @@
       <x-dcore.sidebar />
       <div class="main-content">
         <section class="section">
+          @can('isAdmin')
         <x-dcore.card :dibayar="$dibayar" :dbelum="$dbelum" :semua="$semua"/>
-
+          @else
+          <x-dcore.card2 :udibayar="$udibayar" :ubelom="$ubelom" :usemua="$usemua"/>
+          @endcan
         <!-- MAIN OF CENTER CONTENT -->
           <div class="row">
             <div class="col-lg-12">

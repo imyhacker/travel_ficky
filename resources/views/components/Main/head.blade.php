@@ -62,7 +62,11 @@
           <li><a href="{{url('/')}}#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Jadwal</span></a></li>
           <li><a href="{{url('/')}}#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pesan Tiket</span></a></li>
           <li><a href="{{url('/')}}#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Cari Pesananmu</span></a></li>
+          @if(Auth::check())
+          <li><a href="{{url('home')}}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Dashboard</span></a></li>
+          @else
           <li><a href="{{url('login')}}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Login / Register</span></a></li>
+          @endif
         </ul>
       </nav><!-- .nav-menu -->
     </div>

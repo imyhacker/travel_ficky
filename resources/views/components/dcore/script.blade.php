@@ -21,11 +21,31 @@
   <!-- Template JS File -->
   <script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
   <script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
   <script>
     $(document).ready( function () {
     $('#table_id').DataTable();
 } );
   </script>
+  @if(Session('sukses'))
+  <script>
+    Swal.fire({
+  title: 'Sukses!',
+  text: "{{session('sukses')}}",
+  icon: 'success',
+  confirmButtonText: 'Okey!'
+})
+  </script>
+  @elseif(Session('error'))
+  <script>
+    Swal.fire({
+      title: 'Ooopss!',
+  text: "{{session('error')}}",
+  icon: 'error',
+  confirmButtonText: 'Okey!'
+})
+  </script>
+  @endif
 </body>
 </html>

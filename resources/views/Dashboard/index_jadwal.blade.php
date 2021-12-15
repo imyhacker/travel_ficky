@@ -123,7 +123,7 @@
                                     <td>Rp. {{number_format($jd->tarif)}} / Orang</td>
                                     <td>{{$jd->jam}}:{{$jd->menit}} {{$jd->area}}</td>
                                     <td>
-                                        <a href="" class="btn btn-outline-danger">Hapus </a>
+                                        <a href="{{route('hapus_jadwal', $jd->id)}}" class="btn btn-outline-danger">Hapus </a>
                                     </td>
                                 </tr>
                                 @endforeach

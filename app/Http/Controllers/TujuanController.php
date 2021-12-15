@@ -18,10 +18,16 @@ class TujuanController extends Controller
             Destinasi::create([
                 'destinasi' => $request->input('destinasi'),
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('sukses', 'Destinasi Baru Berhasil Di Tambahkan');
 
         }else {
-            return redirect()->back();
+            return redirect()->back()->with('error', 'Destinasi Baru Gagal Di Tambahkan');;
         }
+    }
+    public function hapus_tujuan($id)
+    {
+        Destinasi::find($id)->delete();
+        return redirect()->back()->with('sukses', 'Destinasi Berhasil Di Hapus');
+
     }
 }

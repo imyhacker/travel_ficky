@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Facades\App;
+use PDO;
 
 class TiketController extends Controller
 {
@@ -27,7 +28,7 @@ class TiketController extends Controller
             $tanggal    = $request->input('tanggal');
             return view('Dashboard/result', compact('data', 'penumpang', 'tanggal'));
         }else{
-            return redirect()->back()->with('gagal', 'Belum Ada Nih Data Yang Kamu Cari...');
+            return redirect()->back()->with('error', 'Belum Ada Nih Data Yang Kamu Cari...');
         }
     }
     public function pesan($slug_jadwal, $penumpang)
@@ -51,7 +52,7 @@ class TiketController extends Controller
             'kode_pembayaran' => Str::slug(Str::random(6), ''),
         ]);
         $pdf = PDF::loadview('Dashboard/Mypdf', compact('cek2', 'cek'));
-        return $pdf->stream('itsolutionstuff.pdf');
+        return $pdf->download('Download_invoice_'.$request->input('nama').'_.pdf');
     }
     public function pemesan()
     {
@@ -60,14 +61,40 @@ class TiketController extends Controller
     }
     public function success($kode_pembayaran)
     {
-        $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->update([
-            'status_dibayar' => 1,
-        ]);
-        return redirect()->back();
+        $cek = Checkout::where('kode_pembayaran', $kode_pembayaran)->first();
+        if(is_null($cek->status_dibayar) || $cek->status_dibayar == 0){
+ 
+            $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->update([
+                'status_dibayar' => 1,
+            ]);
+    
+            return redirect()->back()->with('sukses', 'Kode Pembayaran : '.$kode_pembayaran.' Berhasil Melakukan Pembayaran');
+        }else{
+            return redirect()->back()->with('error', 'Kode Pembayaran : '.$kode_pembayaran.' Sudah Pernah Melakukan Pembayaran');
+        }
+       
     }
     public function cek_pesananmu()
     {
         $data = Checkout::where('nama', Auth::user()->name)->get();
         return view('Dashboard/Users/index', compact('data'));
     }
+    public function hapus_pembayaran($kode_pembayaran)
+    {
+        $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->delete();
+        return redirect()->back()->with('sukses', 'Kode Pembayaran : '.$kode_pembayaran.' Berhasil Di Hapus!');
+    }
+    public function reset_pembayaran($kode_pembayaran)
+    {
+        $cek = Checkout::where('kode_pembayaran', $kode_pembayaran)->first();
+        if($cek->status_dibayar == 1){
+ 
+            $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->update([
+                'status_dibayar' => 0,
+            ]);
+    
+            return redirect()->back()->with('sukses', 'Kode Pembayaran : '.$kode_pembayaran.' Berhasil Di Reset');
+        }else{
+            return redirect()->back()->with('error', 'Kode Pembayaran : '.$kode_pembayaran.' Sudah Pernah Melakukan Reset');
+        }    }
 }

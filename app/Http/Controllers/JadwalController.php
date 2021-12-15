@@ -26,6 +26,12 @@ class JadwalController extends Controller
             'area' => $request->input('area'),
             'slug_jadwal' => Str::slug(Str::random(8), ''),
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('sukses', 'Jadwal Baru Berhasil Di Tambahkan');
+    }
+    public function hapus_jadwal($id)
+    {
+        Jadwal::find($id)->delete();
+        return redirect()->back()->with('sukses', 'Jadwal Berhasil Di Hapus');
+
     }
 }

@@ -44,8 +44,8 @@
                                 <td>@if($pms->status_dibayar == 0) Belum Dibayar @else Sudah Di Bayar @endif</td>
                                 <th>
                                     <a href="{{route('success', $pms->kode_pembayaran)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-check"></i></a>
-                                    <a href="" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
-                                    <a href="" class="btn btn-outline-warning btn-sm"><i class="fas fa-spinner"></i></a>
+                                    <a href="{{route('hapus_pembayaran', $pms->kode_pembayaran)}}" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                    <a href="{{route('reset_pembayaran', $pms->kode_pembayaran)}}" class="btn btn-outline-warning btn-sm"><i class="fas fa-spinner"></i></a>
 
                                 </th>
                             </tr>
