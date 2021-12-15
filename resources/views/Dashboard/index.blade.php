@@ -13,16 +13,10 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Budget vs Sales</h4>
+                  <h4>Selamat Datang Di Aplikasi Travel Kami</h4>
                 </div>
                 <div class="card-body">
-                  <h4> Selamat Datang </h4>
-
-                  @can('isAdmin')
-                  ADMIN
-                  @elsecan('isUser')
-                  user
-                  @endcan
+                  <h4> Selamat Datang {{Auth::user()->name}}</h4>
                 </div>
               </div>
             </div>

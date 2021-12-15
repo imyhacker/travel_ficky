@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Jadwal;
 use App\Models\Checkout;
 use App\Models\Destinasi;
@@ -66,6 +67,7 @@ class TiketController extends Controller
     }
     public function cek_pesananmu()
     {
-        return view('Dashboard/Users/index');
+        $data = Checkout::where('nama', Auth::user()->name)->get();
+        return view('Dashboard/Users/index', compact('data'));
     }
 }

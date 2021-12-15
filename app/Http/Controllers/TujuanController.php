@@ -18,6 +18,8 @@ class TujuanController extends Controller
             Destinasi::create([
                 'destinasi' => $request->input('destinasi'),
             ]);
+            return redirect()->back();
+
         }else {
             return redirect()->back();
         }
