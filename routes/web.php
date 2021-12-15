@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TujuanController;
@@ -54,6 +55,10 @@ Route::group(['prefix' => '/home'], function($kode_pembayaran = null, $id = null
     Route::get('pemesan/{kode_pembayaran}/success', [TiketController::class, 'success'])->name('success', $kode_pembayaran );
     Route::get('pemesan/{kode_pembayaran}/hapus_pembayaran', [TiketController::class, 'hapus_pembayaran'])->name('hapus_pembayaran', $kode_pembayaran);
     Route::get('pemesan/{kode_pembayaran}/reset_pembayaran', [TiketController::class, 'reset_pembayaran'])->name('reset_pembayaran', $kode_pembayaran);
+
+
+    Route::get('akun', [HomeController::class, 'akun'])->name('akun');
+    Route::get('akun/{id}/hapus', [HomeController::class, 'hapus_akun'])->name('hapus_akun')->middleware('can:isAdmin');;
 });
 
 Route::get('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan', [TiketController::class, 'pesan']);

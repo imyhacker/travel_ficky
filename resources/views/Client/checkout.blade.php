@@ -45,7 +45,7 @@
                                     <div class="col-md-12 mb-3">
                                         <label for="firstName">First name</label>
                                         <input type="text" class="form-control"
-                                            required @if(Auth::check()) placeholder="Nama Lengkap" name="nama" value="{{Auth::user()->name}}" @else readonly placeholder="Login Dulu" @endif>
+                                            required @if(Auth::check()) placeholder="Nama Lengkap" name="nama" value="{{Auth::user()->name}}" @else readonly placeholder="Login Dulu" @endif readonly>
 
                                     </div>
 
@@ -54,7 +54,7 @@
 
                                 <div class="mb-3">
                                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                                    <input type="email" class="form-control" @if(Auth::check()) placeholder="email@gmail.com" value="{{Auth::user()->email}}" name="email" @else readonly placeholder="Login Dulu" @endif>
+                                    <input type="email" class="form-control" @if(Auth::check()) placeholder="email@gmail.com" value="{{Auth::user()->email}}" name="email" @else readonly placeholder="Login Dulu" @endif readonly>
                                     
                                 </div>
 

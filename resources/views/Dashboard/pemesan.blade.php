@@ -22,6 +22,7 @@
                                 <th>Email</th>
                                 <th>Jurusan</th>
                                 <th>Semua (Rp)</th>
+                                <th>Pay</th>
                                 <th>Penumpang</th>
                                 <th>Tanggal</th>
                                 <th>Kode Pembayaran</th>
@@ -35,9 +36,10 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$pms->nama}}</td>
-                                <td>{{$pms->email}}</td>
+                                <td>{{\Str::limit($pms->email, 5, '...')}}</td>
                                 <td>{{$pms->dari}}-{{$pms->tujuan}}</td>
                                 <td>Rp. {{number_format($pms->total_dibayar)}},-</td>
+                                <td>{{$pms->payment}}</td>
                                 <td>{{$pms->penumpang}}</td>
                                 <td>{{$pms->created_at}}</td>
                                 <td>{{$pms->kode_pembayaran}}</td>

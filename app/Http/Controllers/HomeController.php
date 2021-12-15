@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Models\User;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,15 @@ class HomeController extends Controller
         $usemua = Checkout::where('nama', Auth::user()->name)->count();
 
         return view('Dashboard/index', compact('dibayar', 'dbelum', 'semua', 'udibayar', 'usemua', 'ubelom'));
+    }
+    public function akun()
+    {
+        $data = User::where('role', 'user')->get();
+        return view('Dashboard/akun', compact('data'));
+    }
+    public function hapus_akun($id)
+    {
+        $data = User::find($id)->delete();
+        return redirect()->back()->with('sukses', 'Berhasil Menghapus Data Pengguna');
     }
 }
