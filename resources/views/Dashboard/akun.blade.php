@@ -14,7 +14,10 @@
                   <h4>Semua Data Pengguna</h4>
                 </div>
                 <div class="card-body">
-            <table class="table" id="table_id">
+                  <button type="button" class="btn btn-primary mb-3 btn-block" data-toggle="modal" data-target="#exampleModal">
+                    Tambah Akun
+                  </button>
+            <table class="table mt-3" id="table_id">
 <thead>
     <tr>
         <th>No</th>
@@ -48,6 +51,36 @@
 
 
         </section>
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Akun</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{route('tambah_akun')}}" method="POST">
+                @csrf
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Nama">
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-outline-primary btn-block" value="Tambah Akun">
+              </div>
+            </form>
+            </div>
+            
+          </div>
+        </div>
       </div>
       <x-dcore.footer />
     </div>

@@ -44,4 +44,15 @@ class HomeController extends Controller
         $data = User::find($id)->delete();
         return redirect()->back()->with('sukses', 'Berhasil Menghapus Data Pengguna');
     }
+    public function tambah_akun(Request $request)
+    {
+        $data = User::where('email', $request->input('email'))->exists();
+        if($data == TRUE){
+            return redirect()->back()->with('error', 'Data Pengguna Sudah Ada');
+        }else{
+            User::create($request->all());
+            return redirect()->back()->with('sukses', 'Berhasil Menambahkan Data Pengguna');
+
+        }
+    }
 }

@@ -58,6 +58,7 @@ Route::group(['prefix' => '/home'], function($kode_pembayaran = null, $id = null
 
 
     Route::get('akun', [HomeController::class, 'akun'])->name('akun');
+    Route::post('akun/tambah_akun', [HomeController::class, 'tambah_akun'])->name('tambah_akun');
     Route::get('akun/{id}/hapus', [HomeController::class, 'hapus_akun'])->name('hapus_akun')->middleware('can:isAdmin');;
 });
 
