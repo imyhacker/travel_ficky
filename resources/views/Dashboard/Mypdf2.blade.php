@@ -107,7 +107,9 @@
 						<table>
 							<tr>
 								<td class="title">
-									<img src="https://media.istockphoto.com/vectors/plane-icon-vector-id1078558156?k=20&m=1078558156&s=612x612&w=0&h=89EY0z-XJpP41_K0iKSzHpHX0kYYH4Anme8Do5xF3CE=" style="width: 100%; max-width: 300px" />
+								
+									<img src="{{public_path().'/assets/img/pp.jpeg'}}" style="width: 100%; max-width: 300px" />
+
 								</td>
 
 								<td>
