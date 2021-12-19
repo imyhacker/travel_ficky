@@ -5,6 +5,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -36,8 +37,10 @@ class HomeController extends Controller
     }
     public function akun()
     {
-        $data = User::where('role', 'user')->get();
-        return view('Dashboard/akun', compact('data'));
+        $data_user = User::where('role', 'user')->get();
+        $data_admin = User::where('role', 'admin')->get();
+
+        return view('Dashboard/akun', compact('data_user', 'data_admin'));
     }
     public function hapus_akun($id)
     {
@@ -50,7 +53,12 @@ class HomeController extends Controller
         if($data == TRUE){
             return redirect()->back()->with('error', 'Data Pengguna Sudah Ada');
         }else{
-            User::create($request->all());
+            User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'role' => $request->input('role'),
+            ]);
             return redirect()->back()->with('sukses', 'Berhasil Menambahkan Data Pengguna');
 
         }
