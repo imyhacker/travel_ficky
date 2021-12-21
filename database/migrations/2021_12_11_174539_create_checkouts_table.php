@@ -18,11 +18,14 @@ class CreateCheckoutsTable extends Migration
             $table->string('nama')->nullable();
             $table->string('email')->nullable();
             $table->string('dari')->nullable();
+            $table->longText('alamat_jemput')->nullable();
+            $table->string('rekening')->nullable();
             $table->string('tujuan')->nullable();
             $table->string('penumpang')->nullable();
             $table->string('payment')->nullable();
             $table->string('total_dibayar')->nullable();
             $table->string('status_dibayar')->nullable();
+            $table->string('status_pembatalan')->nullable();
             $table->string('kode_pembayaran')->nullable();
             $table->timestamps();
         });

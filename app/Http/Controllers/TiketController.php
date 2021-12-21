@@ -47,6 +47,9 @@ class TiketController extends Controller
             'tujuan' =>$request->input('tujuan'),
             'penumpang' => $penumpang,
             'payment' => $request->input('paymentMethod'),
+            'rekening' => $request->input('rekening'),
+            'alamat_jemput' => $request->input('alamat_jemput'),
+            'status_pembatalan' => 0,
             'total_dibayar' => $cek->tarif * $penumpang,
             'status_dibayar' => 0,
             'kode_pembayaran' => Str::slug(Str::random(6), ''),
@@ -96,5 +99,25 @@ class TiketController extends Controller
             return redirect()->back()->with('sukses', 'Kode Pembayaran : '.$kode_pembayaran.' Berhasil Di Reset');
         }else{
             return redirect()->back()->with('error', 'Kode Pembayaran : '.$kode_pembayaran.' Sudah Pernah Melakukan Reset');
-        }    }
+        }    
+    }
+    public function batalkan($kode_pembayaran)
+    {
+        $cek = Checkout::where('kode_pembayaran', $kode_pembayaran)->first();
+        if($cek->status_pembatalan == 0){
+ 
+            $data = Checkout::where('kode_pembayaran', $kode_pembayaran)->first()->update([
+                'status_pembatalan' => 1,
+            ]);
+    
+            return redirect()->back()->with('sukses', 'Kode Pembayaran : '.$kode_pembayaran.' Berhasil Di Batalkan');
+        }else{
+            return redirect()->back()->with('error', 'Kode Pembayaran : '.$kode_pembayaran.' Sudah Dibatalkan');
+        }    
+    }
+    public function selengkapnya($kode_pembayaran)
+    {
+        $selengkapnya = Checkout::where('kode_pembayaran', $kode_pembayaran)->first();
+        return view('Dashboard/selengkapnya', compact('selengkapnya'));
+    }
 }

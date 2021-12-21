@@ -78,8 +78,24 @@
                                                     required value="{{$jadwal->tujuan}}" readonly name="tujuan">
 
                                             </div>
+                                            <div class="mb-3">
+                                            <label>Alamat Penjemputan</label>
+                                            <textarea name="alamat_jemput" class="form-control" placeholder="Alamat Penjemputan" cols="30" rows="10" required></textarea>
+                                            </div>
 
                                             <hr class="mb-4">
+                                            <div class="mb-3">
+                                                <label>Nomor Rekening</label>
+                                                <input type="number" class="form-control" name="rekening" placeholder="Nomor Rekening">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>Metode Pembayaran</label>
+                                                <select class="form-control" name="paymentMethod">
+                                                    <option value="BRI">BRI</option>
+                                                    <option value="MANDIRI">MANDIRI</option>
+                                                    <option value="BCA">BCA</option>
+                                                </select>
+                                            </div>
                                             <hr class="mb-4">
                                             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to
                                                 checkout</button>

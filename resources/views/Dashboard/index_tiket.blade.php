@@ -18,21 +18,20 @@
                                 <form action="{{route('cari')}}" method="post">
                                     @csrf
                                 <div class="row">
+                                
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Tujuan</label>
+                                            <label>Dari</label>
                                             <select name="dari" id="" class="form-control">
                                                 <option disabled selected value>-- Dari --</option>
-                                                @foreach($data as $d)
-                                                <option value="{{$d->destinasi}}">{{$d->destinasi}}</option>
-                                                @endforeach
+                                                <option value="Indramayu">Indramayu</option>   
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
 
-                                            <label>Asal</label>
+                                            <label>Tujuan</label>
                                             <select name="tujuan" id="" class="form-control">
                                                 <option disabled selected value>-- Tujuan --</option>
 
@@ -53,7 +52,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
 
-                                            <label>Tujuan</label>
+                                            <label>Banyaknya Penumpang</label>
                                             <select name="penumpang" id="" class="form-control">
                                                 <option disabled selected value>-- Banyaknya Penumpang --</option>
 

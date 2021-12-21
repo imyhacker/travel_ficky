@@ -20,12 +20,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Tujuan</label>
+                                                <label>Dari</label>
                                                 <select name="dari" class="form-control">
                                                     <option disabled selected value>-- Dari --</option>
-                                                    @foreach($data as $d)
-                                                    <option value="{{$d->destinasi}}">{{$d->destinasi}}</option>
-                                                    @endforeach
+                                                    <option value="Indramayu">Indramayu</option>
                                                 </select>
                                             </div>
                                         </div>

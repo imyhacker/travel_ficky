@@ -25,7 +25,8 @@
                                 <th>Tanggal</th>
                                 <th>Kode Pembayaran</th>
                                 <th>Status Dibayar</th>
-                                
+                                <th>Status</th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,7 +40,10 @@
                                 <td>{{$pms->created_at}}</td>
                                 <td>{{$pms->kode_pembayaran}}</td>
                                 <td>@if($pms->status_dibayar == 0) Belum Dibayar @else Sudah Di Bayar @endif</td>
-                               
+                                <td>@if($pms->status_pembatalan == 0) Jadi Berangkat @else Di Batalkan @endif</td>
+                                <td>
+                                  <a href="{{route('batalkan',$pms->kode_pembayaran)}}" class="btn btn-outline-danger btn-sm"><i class="fas fa-cancel"></i> Batalkan Pesanan</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

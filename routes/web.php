@@ -55,6 +55,7 @@ Route::group(['prefix' => '/home'], function($kode_pembayaran = null, $id = null
     Route::get('pemesan/{kode_pembayaran}/success', [TiketController::class, 'success'])->name('success', $kode_pembayaran );
     Route::get('pemesan/{kode_pembayaran}/hapus_pembayaran', [TiketController::class, 'hapus_pembayaran'])->name('hapus_pembayaran', $kode_pembayaran);
     Route::get('pemesan/{kode_pembayaran}/reset_pembayaran', [TiketController::class, 'reset_pembayaran'])->name('reset_pembayaran', $kode_pembayaran);
+    Route::get('pemesan/{kode_pembayaran}/selengkapnya', [TiketController::class, 'selengkapnya'])->name('selengkapnya', $kode_pembayaran);
 
 
     Route::get('akun', [HomeController::class, 'akun'])->name('akun');
@@ -67,6 +68,7 @@ Route::post('/home/tiket/cari/{slug_jadwal}/{penumpang}/pesan/checkout', [TiketC
 
 
 
-Route::group(['prefix' => '/home'], function(){
+Route::group(['prefix' => '/home'], function($kode_pembayaran = NULL){
     Route::get('cek_pesananmu', [TiketController::class, 'cek_pesananmu'])->name('cek_pesananmu');
+    Route::get('cek_pesananmu/{kode_pembayaran}/batalkan', [TiketController::class, 'batalkan'])->name('batalkan',$kode_pembayaran);
 });

@@ -19,14 +19,11 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>Jurusan</th>
+                                <th>Tujuan</th>
                                 <th>Semua (Rp)</th>
-                                <th>Pay</th>
-                                <th>Penumpang</th>
-                                <th>Tanggal</th>
                                 <th>Kode Pembayaran</th>
                                 <th>Status Dibayar</th>
+                                <th>Status Pembatalan</th>
                                 <th>Option</th>
                             </tr>
                         </thead>
@@ -36,19 +33,26 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$pms->nama}}</td>
-                                <td>{{\Str::limit($pms->email, 5, '...')}}</td>
-                                <td>{{$pms->dari}}-{{$pms->tujuan}}</td>
+                                <td>{{$pms->tujuan}}</td>
                                 <td>Rp. {{number_format($pms->total_dibayar)}},-</td>
-                                <td>{{$pms->payment}}</td>
-                                <td>{{$pms->penumpang}}</td>
-                                <td>{{$pms->created_at}}</td>
+                              
                                 <td>{{$pms->kode_pembayaran}}</td>
-                                <td>@if($pms->status_dibayar == 0) Belum Dibayar @else Sudah Di Bayar @endif</td>
+                                <td>@if($pms->status_dibayar == 0 && $pms->status_pembatalan == 0) Belum Dibayar @else Sudah Di Bayar @endif</td>
+                                <td>@if($pms->status_pembatalan == 0) Jadi Berangkat @else Di Batalkan @endif</td>
+                               
                                 <th>
-                                    <a href="{{route('success', $pms->kode_pembayaran)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-check"></i></a>
+                                @if($pms->status_pembatalan == 0) 
+                                <a href="{{route('success', $pms->kode_pembayaran)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-check"></i></a>
                                     <a href="{{route('hapus_pembayaran', $pms->kode_pembayaran)}}" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
                                     <a href="{{route('reset_pembayaran', $pms->kode_pembayaran)}}" class="btn btn-outline-warning btn-sm"><i class="fas fa-spinner"></i></a>
+                                    <a href="{{route('selengkapnya', $pms->kode_pembayaran)}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                @else 
+                                <a href="#" class="btn btn-outline-success btn-sm disabled"><i class="fas fa-check"></i></a>
+                                    <a href="#" class="btn btn-outline-danger btn-sm disabled"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="btn btn-outline-warning btn-sm disabled"><i class="fas fa-spinner"></i></a>
 
+                                @endif
+                                   
                                 </th>
                             </tr>
                             @endforeach
