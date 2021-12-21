@@ -32,7 +32,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
 
-                                            <label>Tujuan</label>
+                                            <label>Asal</label>
                                             <select name="tujuan" id="" class="form-control">
                                                 <option disabled selected value>-- Tujuan --</option>
 

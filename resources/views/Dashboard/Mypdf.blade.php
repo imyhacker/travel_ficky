@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>A simple, clean, and responsive HTML invoice template</title>
+		<title>Bukti pemesanan</title>
 
 		<style>
 			.invoice-box {
@@ -112,7 +112,7 @@
 
 								<td>
 									Invoice #: {{$cek2->kode_pembayaran}}<br />
-									Created: {{$cek2->created_at}}<br />
+									Dipesan: {{$cek2->created_at}}<br />
 								</td>
 							</tr>
 						</table>
@@ -121,7 +121,7 @@
 
 
 				<tr class="heading">
-					<td>Payment Method</td>
+					<td>Pembayaran</td>
 
 					<td>Check #</td>
 				</tr>
@@ -135,7 +135,7 @@
 				<tr class="heading">
 					<td>Item</td>
 
-					<td>Price</td>
+					<td>Harga</td>
 				</tr>
 
 				<tr class="item">

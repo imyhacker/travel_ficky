@@ -12,7 +12,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Checkout</h4>
+                                <h4>Pembayaran</h4>
                             </div>
                             <div class="card-body">
                               <form action="/home/tiket/cari/{{$jadwal->slug_jadwal}}/{{$penumpang}}/pesan/checkout" method="POST">
@@ -20,12 +20,11 @@
                                 <div class="row">
                                     <div class="col-md-4 order-md-2 mb-4">
                                         <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                            <span class="text-muted">Your cart</span>
+                                            <span class="text-muted">Pesananmu</span>
                                         </h4>
                                         <ul class="list-group mb-3">
                                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                                 <div>
-                                                    <h6 class="my-0">Pesananmu</h6>
                                                     <small
                                                         class="text-muted">{{$jadwal->dari}}-{{$jadwal->tujuan}} : Rp. {{number_format($jadwal->tarif)}},-</small><br>
                                                     <small
@@ -42,11 +41,10 @@
 
                                     </div>
                                     <div class="col-md-8 order-md-1">
-                                        <h4 class="mb-3">Billing address</h4>
                                         <form class="needs-validation" novalidate>
                                             <div class="row">
                                                 <div class="col-md-12 mb-3">
-                                                    <label for="firstName">First name</label>
+                                                    <label for="firstName">Nama</label>
                                                     <input type="text" name="nama" class="form-control" value="{{Auth::user()->name}}"  required readonly>
                                                     <div class="invalid-feedback">
                                                         Valid first name is required.
@@ -82,28 +80,6 @@
                                             </div>
 
                                             <hr class="mb-4">
-
-                                            <h4 class="mb-3">Payment</h4>
-
-                                            <div class="d-block my-3">
-                                                <div class="custom-control custom-radio">
-                                                    <input id="credit" name="paymentMethod" type="radio"
-                                                        class="custom-control-input" checked required value="BNI">
-                                                    <label class="custom-control-label" for="credit">BNI</label>
-                                                </div>
-                                                <div class="custom-control custom-radio">
-                                                    <input id="debit" name="paymentMethod" type="radio"
-                                                        class="custom-control-input" required value="BRI">
-                                                    <label class="custom-control-label" for="debit">BRI</label>
-                                                </div>
-                                                <div class="custom-control custom-radio">
-                                                    <input id="paypal" name="paymentMethod" type="radio"
-                                                        class="custom-control-input" required value="Mandiri">
-                                                    <label class="custom-control-label" for="paypal">Mandiri</label>
-                                                </div>
-                                            </div>
-
-
                                             <hr class="mb-4">
                                             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to
                                                 checkout</button>
