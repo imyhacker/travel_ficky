@@ -51,9 +51,7 @@
                                             <label>Tujuan</label>
                                             <select name="dari" id="" class="form-control">
                                                 <option disabled selected value>-- Dari --</option>
-                                                @foreach($data as $d)
-                                                <option value="{{$d->destinasi}}">{{$d->destinasi}}</option>
-                                                @endforeach
+                                               <option value="Indramayu">Indramayu</option>
                                             </select>
                                         </div>
                                     </div>

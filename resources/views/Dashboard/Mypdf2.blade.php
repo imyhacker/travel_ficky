@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>A simple, clean, and responsive HTML invoice template</title>
+		<title>Yuuk Travel</title>
 
 		<style>
 			.invoice-box {
@@ -108,7 +108,7 @@
 							<tr>
 								<td class="title">
 								
-									<img src="{{public_path().'/assets/img/pp.jpeg'}}" style="width: 100%; max-width: 300px" />
+									<img src="{{asset('/assets/img/pp.jpeg')}}" style="width: 100%; max-width: 300px" />
 
 								</td>
 

@@ -100,7 +100,7 @@
                                 <button class="btn btn-primary btn-sm btn-block" type="submit">Continue to
                                     checkout</button>
                                 @else
-                                <button class="btn btn-danger btn-sm btn-block" type="Button">Login Terlebih Dahulu</button>
+                                <a class="btn btn-danger btn-sm btn-block" href="{{url('login')}}">Login Terlebih Dahulu</a>
                                 @endif
                             </form>
                         </div>
