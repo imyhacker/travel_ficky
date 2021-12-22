@@ -32,7 +32,16 @@
                         </span>
                     @enderror
                   </div>
+                  <div class="form-group">
+                    <label for="email">Nomor Handphone / WA</label>
+                    <input id="no_hp" type="number" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="email">
 
+                    @error('no_hp')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="password" class="d-block">Password</label>

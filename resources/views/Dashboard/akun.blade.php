@@ -24,6 +24,7 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
+                                            <th>No. Hp</th>
                                             <th>Bergabung Pada</th>
                                             <th>Opt</th>
                                         </tr>
@@ -35,6 +36,7 @@
                                             <td>{{$no++}}</td>
                                             <td>{{$ak->name}}</td>
                                             <td>{{$ak->email}}</td>
+                                            <td>{{$ak->no_hp}}</td>
                                             <td>{{$ak->created_at->diffForHumans()}}</td>
                                             <td>
                                                 <a href="{{route('hapus_akun', $ak->id)}}"
